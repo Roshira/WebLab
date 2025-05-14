@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Головна - Тестовий макет</title> <!-- Змінено title -->
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+  /* --- Original & Modified Styles --- */
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 14px;
+  line-height: 22px;
+  color: #333;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: 980px;
+  width: 96%;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+/* Header Styles */
+header {
+  width: 100%;
+  background: #fff;
+  color: #3e3e3e;
+  border-bottom: 1px solid #eee;
+  padding: 15px 0;
+  flex-shrink: 0;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-company-group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo-link {
+  display: block;
+}
+
+.logo-img {
+  height: 50px;
+  width: auto;
+  display: block;
+}
+
+.company-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.company-name {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
+}
+
+.company-subtitle {
+  font-size: 14px;
+  color: #666;
+}
+
+.header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.phones {
+  font-size: 18px;
+  color: #333;
+  text-align: right;
+  line-height: 1.4;
+}
+
+.feedback-link {
+  font-weight: bold;
+  color: #000;
+  border-bottom: 1px solid #000;
+  padding-bottom: 2px;
+  transition: all 0.3s ease;
+  margin-top: 5px;
+  display: inline-block;
+}
+
+.feedback-link:hover {
+  color: #555;
+  border-bottom-color: #555;
+}
+
+/* Navigation */
+nav {
+  width: 100%;
+  background: #3e3e3e;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 30px;
+  padding: 10px 0;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+nav li a {
+  color: #fff;
+  padding: 5px 0;
+  transition: color 0.3s ease;
+}
+
+nav li a:hover {
+  color: #ddd;
+}
+
+/* Slider */
+#slider {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  background-color: #eee;
+  flex-shrink: 0;
+}
+
+#slider img {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+#slider img.active {
+  opacity: 1;
+}
+
+#slider button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.4);
+  color: white;
+  border: none;
+  padding: 8px 13px;
+  cursor: pointer;
+  font-size: 24px;
+  z-index: 10;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#slider .prev-btn {
+  left: 15px;
+}
+
+#slider .next-btn {
+  right: 15px;
+}
+
+#slider button:hover {
+  background: rgba(0,0,0,0.7);
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+    padding: 15px 0;
+    font-size: 13px;
+    color: #666;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+.breadcrumbs a {
+    color: #337ab7;
+    text-decoration: none;
+}
+.breadcrumbs a:hover {
+    text-decoration: underline;
+}
+.breadcrumbs span { /* Для поточного елементу, якщо він не посилання */
+    color: #333;
+}
+
+/* --- СТИЛІ ДЛЯ ГОЛОВНОЇ СТОРІНКИ (MainPage) --- */
+#content-mainpage {
+  padding: 30px 0; /* Вертикальні відступи */
+}
+
+.about-zara-section {
+  margin-bottom: 40px;
+  background-color: #fff; /* Білий фон для секції "Про нас" */
+  padding: 30px; /* Збільшено внутрішні відступи */
+  border: 1px solid #eee;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Легка тінь */
+}
+
+.about-zara-section h1 {
+  font-size: 28px; /* Збільшено заголовок */
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 25px; /* Збільшено відступ */
+  padding-bottom: 15px; /* Збільшено відступ */
+  border-bottom: 2px solid #3e3e3e; /* Акцентна лінія */
+  text-align: center; /* Центрування заголовку */
+}
+
+.about-zara-section h2 {
+  font-size: 22px;
+  font-weight: bold;
+  color: #3e3e3e; /* Темніший колір */
+  margin-top: 30px; /* Збільшено відступ */
+  margin-bottom: 15px;
+}
+
+.about-zara-section p {
+  font-size: 15px; /* Збільшено текст */
+  line-height: 1.8; /* Збільшено міжрядковий інтервал */
+  color: #555;
+  margin-bottom: 18px; /* Збільшено відступ */
+  text-align: justify; /* Вирівнювання тексту по ширині */
+}
+.about-zara-section p:last-child {
+    margin-bottom: 0;
+}
+
+.about-zara-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin: 25px auto; /* Центрування зображення */
+  border: 1px solid #ddd;
+  display: block;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  max-height: 350px; /* Обмеження висоти */
+  object-fit: cover; /* Для кращого вигляду, якщо пропорції не співпадають */
+}
+
+
+.popular-products-section {
+  margin-bottom: 30px;
+  padding-top: 20px;
+}
+
+.popular-products-section > h2 { /* Більш специфічний селектор для h2 */
+  font-size: 26px; /* Збільшено заголовок */
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 30px; /* Збільшено відступ */
+  padding-bottom: 15px;
+  border-bottom: 2px solid #3e3e3e; /* Акцентна лінія */
+  position: relative;
+}
+/* Декоративний елемент для заголовка популярних товарів */
+.popular-products-section > h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #337ab7; /* Колір акценту */
+    margin: 10px auto 0;
+}
+
+
+.popular-products-container {
+  display: flex;
+  justify-content: space-between; /* Розміщення товарів рівномірно */
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* СТИЛІ ПРОДУКТІВ (використовуються для популярних товарів) */
+.product {
+  width: calc(33.333% - 14px); /* ~3 продукти в ряд з урахуванням gap: 20px */
+  background-color: #fff;
+  border: 1px solid #eee;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  min-height: 320px; /* Трохи збільшена висота */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.product:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transform: translateY(-3px);
+}
+
+.product-image-placeholder {
+    height: 150px;
+    background-color: #f0f0f0;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" viewBox="0 0 100 80"%3E%3Crect fill="%23ddd" width="100" height="80"%2F%3E%3Cpath fill="%23aaa" d="M77.5%2C25.7c-2.1-1.8-5-2.4-7.8-1.8c-3.4%2C0.7-6.4%2C2.8-8.3%2C5.8l-4.1%2C6.1L47.1%2C26.4 c-1.7-2.4-4.3-3.9-7.2-4.1c-3.7-0.2-7.1%2C1.5-9.1%2C4.5L13.7%2C53.1V65h72.6V48.6L77.5%2C25.7z M18.7%2C60v-3.9l14.8-21.8 c0.8-1.2%2C2.2-1.9%2C3.7-1.8c1.1%2C0.1%2C2.2%2C0.7%2C2.9%2C1.6l11.8%2C15.5l4.1-6.1c0.9-1.3%2C2.3-2.2%2C3.9-2.4 c1.8-0.2%2C3.6%2C0.4%2C4.9%2C1.6l9%2C11.9V60H18.7z"%2F%3E%3Ccircle fill="%23aaa" cx="70" cy="30" r="5"%2F%3E%3Cpath fill="%23aaa" stroke="%23f0f0f0" stroke-width="2" d="M0%2C0 L100%2C80 M100%2C0 L0%2C80" stroke-linecap="round"%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
+    border: 1px dashed #ccc;
+}
+
+.product p {
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 1.5; /* Трохи збільшено */
+    flex-grow: 1;
+    min-height: 42px; /* Орієнтовна висота для ~2-3 рядків тексту */
+    color: #444;
+}
+
+.product-price-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 10px;
+}
+
+.product-price-line strong {
+    font-size: 18px;
+    font-weight: bold;
+    color: #d9534f;
+}
+
+.cart-icon {
+    font-size: 24px;
+    cursor: pointer;
+    color: #aaa;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" viewBox="0 0 24 24" fill="%23aaaaaa"%3E%3Cpath d="M17.21%2C9 L12.83%2C9 L14.6%2C5.45 C14.9%2C4.81 14.47%2C4 13.77%2C4 L11%2C4 C10.45%2C4 10%2C4.45 10%2C5 L10%2C8.79 L5.41%2C14.59 C5.05%2C14.95 4.86%2C15.45 4.94%2C15.95 L5.67%2C20.59 C5.83%2C21.66 6.78%2C22.44 7.88%2C22.44 L16.12%2C22.44 C17.22%2C22.44 18.17%2C21.66 18.33%2C20.59 L19.06%2C15.95 C19.14%2C15.45 18.95%2C14.95 18.59%2C14.59 L17.21%2C9 Z M7.88%2C20.44 L5.88%2C20.44 L5.15%2C15.8 L10%2C10.95 L10%2C6 L13.03%2C6 L11.34%2C9.31 C11.15%2C9.68 11.31%2C10.13 11.69%2C10.32 C11.87%2C10.41 12.08%2C10.46 12.28%2C10.46 L17.17%2C10.46 L18.12%2C15.8 L7.88%2C20.44 Z"/%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 24px 24px;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+.cart-icon:hover {
+    color: #555;
+    transform: scale(1.1);
+}
+
+/* --- КІНЕЦЬ СТИЛІВ ДЛЯ ГОЛОВНОЇ СТОРІНКИ --- */
+
+/* Upper Footer Section (Company Description) */
+.company-description-section {
+    background-color: #fff;
+    padding: 40px 0;
+    border-top: 1px solid #eee;
+    flex-shrink: 0;
+}
+.footer-description-columns {
+    display: flex;
+    gap: 30px;
+    line-height: 1.6;
+    color: #555;
+    font-size: 13px;
+}
+.footer-description-columns .footer-col {
+    flex: 1;
+}
+.footer-description-columns .footer-col hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin-bottom: 15px;
+}
+
+/* Main Footer (Lower Part) */
+footer.site-footer {
+  width: 100%;
+  background: #333;
+  color: #aaa;
+  padding: 30px 0;
+  margin-top: 0;
+  flex-shrink: 0;
+  font-size: 13px;
+}
+footer.site-footer .container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+.footer-left {
+    flex-basis: 30%;
+    line-height: 1.5;
+}
+.footer-left .copyright {
+    margin-bottom: 5px;
+}
+.footer-center {
+    flex-basis: 40%;
+}
+.footer-center ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.footer-center li {
+    margin-bottom: 8px;
+}
+.footer-center li a {
+    color: #ccc;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+.footer-center li a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+.footer-right {
+    flex-basis: 25%;
+    text-align: right;
+}
+.developer-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+.developer-logo {
+    width: 30px;
+    height: 30px;
+    background-color: #555;
+    border: 1px solid #777;
+    display: inline-block;
+    background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" viewBox="0 0 10 10"%3E%3Crect fill="%23ccc" width="4.5" height="4.5" x="0" y="0"/%3E%3Crect fill="%23ccc" width="4.5" height="4.5" x="5.5" y="5.5"/%3E%3C/svg%3E');
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.developer-text {
+    font-size: 12px;
+    line-height: 1.4;
+}
+.developer-text a {
+    color: #ccc;
+    font-weight: bold;
+}
+.developer-text a:hover {
+    color: #fff;
+}
+
+/* Feedback Modal */
+#feedback {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9); /* Початковий стан для анімації */
+  background: #fff;
+  padding: 25px;
+  width: 320px;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  z-index: 999;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+#feedback.visible {
+    display: block;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1); /* Кінцевий стан для анімації */
+}
+#feedback h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 18px;
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+}
+#feedback input,
+#feedback textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  border-radius: 3px;
+}
+#feedback input.error,
+#feedback textarea.error {
+    border-color: #d9534f;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 6px #ce8483;
+}
+#feedback textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+#feedback button#send {
+  padding: 10px 15px;
+  background: #3e3e3e;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 3px;
+  transition: background-color 0.2s ease;
+}
+#feedback button#send:hover {
+  background-color: #555;
+}
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  z-index: 998;
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+.overlay.visible {
+    display: block;
+    opacity: 1;
+}
+@font-face {
+  font-family: 'PhoneFont';
+  src: url('fonts/AnyConv.com__Karsten Thin.eot');
+  src: url('fonts/PhoneFont.eot?#iefix') format('embedded-opentype'),
+       url('fonts/AnyConv.com__Karsten Thin.woff2') format('woff2'),
+       url('fonts/Karsten-Thin.woff') format('woff'),
+       url('fonts/Karsten-Thin.svg') format('truetype'),
+       url('fonts/Karsten-Thin.svg') format('svg');
+  font-display: swap;
+}
+.phone-number {
+  font-family: 'PhoneFont', sans-serif;
+}
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo-company-group">
+          <a href="#" class="logo-link">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Zara_Logo.svg" alt="Zara Logo" class="logo-img">
+          </a>
+          <div class="company-info">
+            <div class="company-name">Zara</div>
+            <div class="company-subtitle">найкраща компанія світу</div>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="contacts">
+            <div class="phones">
+              <span class="phone-number">+38(044) 123-45-67</span><br />
+              <span class="phone-number">+38(044) 123-45-67</span>
+            </div>
+            <a href="#" id="open-feedback" class="feedback-link">Зворотний зв'язок</a>
+          </div>  
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <div class="container">
+      <ul>
+        <li><a href="#" class="mainText">Головна</a></li>
+        <li><a href="Lab.html" class="mainText">Каталог</a></li>
+        <li><a href="#" class="mainText">Доставка та оплата</a></li>
+        <li><a href="#" class="mainText">Прайс-лист</a></li>
+        <li><a href="Contact.html" class="mainText">Контакти</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <div id="slider">
+    <img src="https://tvoemisto.tv/media/gallery/full/3/4/3435d3.jpg" class="active" alt="Slider Image 1"/>
+    <img src="https://rau.ua/wp-content/uploads/2023/01/zara.jpg" alt="Slider Image 2"/>
+    <img src="https://business-broker.com.ua/wp-content/uploads/2025/04/ss.webp" alt="Slider Image 3"/>
+    <button class="prev-btn">←</button>
+    <button class="next-btn">→</button>
+  </div>
+
+<main>
+    <!-- Хлібні крихти -->
+    <div class="container">
+        <div class="breadcrumbs">
+            <span>Головна</span> <!-- Для головної сторінки просто текст -->
+        </div>
+    </div>
+
+    <div class="container" id="content-mainpage">
+        <section class="about-zara-section">
+            <h1>Про нас - Zara: Історія успіху та світовий вплив</h1>
+            <img src="https://i.lb.ua/059/34/5a1686fd69686.png" alt="Амансіо Ортега, засновник Zara" class="about-zara-image">
+            <p>Zara – це не просто бренд одягу, це феномен у світі моди, який змінив уявлення про швидку моду (fast fashion) та доступність актуальних трендів для мільйонів людей по всьому світу. Заснована в Іспанії у 1975 році Амансіо Ортегою, Zara стала флагманським брендом корпорації Inditex, однієї з найбільших у світі груп дистрибуції модного одягу. Перший магазин був відкритий у місті Ла-Корунья, Іспанія, і спочатку пропонував доступні копії популярних дизайнерських речей.</p>
+            
+            <h2>Наша філософія та бізнес-модель</h2>
+            <p>Ключ до успіху Zara полягає в її унікальній бізнес-моделі, яка дозволяє надзвичайно швидко реагувати на зміни модних тенденцій та доставляти нові колекції до магазинів протягом лічених тижнів. Це стало можливим завдяки вертикально інтегрованій системі, де компанія контролює більшість етапів: від дизайну, виробництва та пошиття до логістики та продажів у власних магазинах. Zara мінімізує витрати на рекламу, натомість інвестуючи у відкриття магазинів у престижних локаціях.</p>
+            <p>Zara пропонує широкий асортимент одягу, взуття та аксесуарів для жінок (Zara Woman, Zara Basic, Zara TRF), чоловіків (Zara Man) та дітей (Zara Kids), поєднуючи останні тренди з подіумів із повсякденним стилем. Компанія робить ставку на виробництво невеликих партій товару та часте оновлення асортименту (до двох разів на тиждень), що створює відчуття ексклюзивності та заохочує покупців регулярно відвідувати магазини в пошуках новинок.</p>
+            
+            <h2>Сталий розвиток та інновації</h2>
+            <p>Останніми роками Zara та вся група Inditex активно працюють над впровадженням принципів сталого розвитку у свою діяльність. Це включає використання екологічніших матеріалів (органічна бавовна, перероблені тканини), оптимізацію виробничих процесів для зменшення впливу на довкілля, та програми збору старого одягу для переробки або повторного використання в рамках ініціативи "Join Life". Компанія також ставить амбітні цілі щодо скорочення викидів вуглецю та використання відновлюваної енергії.</p>
+            <p>Сьогодні магазини Zara розташовані на головних торгових вулицях понад 90 країн світу, а онлайн-платформа бренду дозволяє здійснювати покупки з будь-якої точки світу, де є представництво. Zara продовжує бути символом сучасної моди, доступності та інноваційного підходу до бізнесу, адаптуючись до потреб споживачів та викликів часу.</p>
+        </section>
+
+        <section class="popular-products-section">
+            <h2>Найпопулярніші товари</h2>
+            <div class="popular-products-container">
+                <!-- Product 1 -->
+                <article class="product">
+                    <div class="product-image-placeholder"></div> <!-- Замініть на реальне зображення, якщо є -->
+                    <p>Елегантна лляна сукня міді з поясом</p>
+                    <div class="product-price-line">
+                        <strong>1 899 грн</strong>
+                        <span class="cart-icon" title="Додати в кошик"></span>
+                    </div>
+                </article>
+                <!-- Product 2 -->
+                <article class="product">
+                    <div class="product-image-placeholder"></div> <!-- Замініть на реальне зображення, якщо є -->
+                    <p>Класичний чоловічий блейзер з вовни темно-синього кольору</p>
+                    <div class="product-price-line">
+                        <strong>2 599 грн</strong>
+                        <span class="cart-icon" title="Додати в кошик"></span>
+                    </div>
+                </article>
+                <!-- Product 3 -->
+                <article class="product">
+                    <div class="product-image-placeholder"></div> <!-- Замініть на реальне зображення, якщо є -->
+                    <p>Зручні джинси-мом вільного крою для повсякденного носіння</p>
+                    <div class="product-price-line">
+                        <strong>1 299 грн</strong>
+                        <span class="cart-icon" title="Додати в кошик"></span>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </div>
+</main>
+
+  <section class="company-description-section">
+      <div class="container">
+          <div class="footer-description-columns">
+              <div class="footer-col">
+                  <hr>
+                  <p>
+                      Zara — бренд, відомий в усіх куточках світу. Його стиль впізнаваний
+                       і не втрачає привабливості. Зараз бренд є частиною глобальної іспанської
+                        компанії Inditex. До її мережі належать й інші популярні бренди: Pull&Bear,
+                         Stradivarius, Bershka, Massimo Dutti та інші.
+                  </p>
+              </div>
+              <div class="footer-col">
+                  <hr>
+                  <p>
+                      Історія бренду пов’язана з ім’ям Амансіо Ортеги.
+                       Завдяки харизмі, наполегливості та, безумовно, хисту до 
+                       комерції, він зміг створити одну з найбільших 
+                       світових мереж магазинів одягу, ставши одним із
+                        найвпливовіших людей планети. 
+                  </p>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-left">
+        <div class="copyright">© 2012–2024 ЗАТ «Компанія»</div>
+        <div class="email">info@name.ua</div>
+      </div>
+      <div class="footer-center">
+        <ul>
+          <li><a href="#">Головна</a></li>
+          <li><a href="#">Каталог</a></li>
+          <li><a href="#">Доставка та оплата</a></li>
+          <li><a href="#">Прайс-лист</a></li>
+          <li><a href="#">Контакти</a></li>
+        </ul>
+      </div>
+      <div class="footer-right">
+        <div class="developer-info">
+            <span class="developer-logo" aria-hidden="true"></span>
+            <div class="developer-text">
+                Розробка сайту —<br/>
+                <a href="#" target="_blank" rel="noopener">компанія «Піксель Плюс»</a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="overlay" id="overlay"></div>
+  <div id="feedback">
+    <h3>ЗВОРОТНИЙ ЗВ'ЯЗОК</h3>
+    <input type="text" id="name" placeholder="Ваше ім’я*" required aria-required="true"/>
+    <input type="tel" id="phone" placeholder="Телефон *" required aria-required="true"/>
+    <input type="email" id="email" placeholder="Email *" required aria-required="true"/>
+    <textarea id="message" placeholder="Повідомлення"></textarea>
+    <button type="button" id="send">НАДІСЛАТИ</button>
+  </div>
+
+  <script>
+    // Feedback Modal Logic
+    const feedbackModal = document.getElementById("feedback");
+    const overlay = document.getElementById("overlay");
+    const openButton = document.getElementById("open-feedback");
+    const sendButton = document.getElementById("send");
+
+    function openModal() {
+        overlay.classList.add("visible");
+        feedbackModal.classList.add("visible");
+    }
+
+    function closeModal() {
+        overlay.classList.remove("visible");
+        feedbackModal.classList.remove("visible");
+    }
+
+    if (openButton) {
+        openButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal();
+        });
+    }
+
+    if (overlay) {
+        overlay.addEventListener('click', closeModal);
+    }
+
+   if (sendButton) {
+       sendButton.addEventListener('click', function() {
+            const nameInput = document.getElementById("name");
+            const phoneInput = document.getElementById("phone");
+            const emailInput = document.getElementById("email");
+            let isValid = true;
+
+            [nameInput, phoneInput, emailInput].forEach(input => {
+                if(input) input.classList.remove("error");
+            });
+
+            [nameInput, phoneInput, emailInput].forEach(input => {
+                if(input && !input.value.trim()) {
+                    input.classList.add("error");
+                    isValid = false;
+                }
+            });
+
+            if (emailInput && emailInput.value.trim() && !emailInput.value.includes('@')) {
+                 emailInput.classList.add("error");
+                 isValid = false;
+            }
+
+            if (isValid) {
+                alert("Форма відправлена!"); // Можна замінити на більш витончене повідомлення
+                closeModal();
+                // Опціонально: очистити поля форми
+                // [nameInput, phoneInput, emailInput, document.getElementById("message")].forEach(el => { if(el) el.value = ''; });
+            }
+        });
+   }
+
+
+    // --- Slider Logic ---
+    document.addEventListener('DOMContentLoaded', function() {
+        const slider = document.getElementById('slider');
+        if (!slider) return;
+
+        const images = slider.querySelectorAll('img');
+        const prevBtn = slider.querySelector('.prev-btn');
+        const nextBtn = slider.querySelector('.next-btn');
+        let currentIndex = 0;
+        let intervalId = null;
+        const autoplayDelay = 4000;
+
+        if (images.length <= 1) {
+             if (prevBtn) prevBtn.style.display = 'none';
+             if (nextBtn) nextBtn.style.display = 'none';
+             if (images.length === 1 && images[0]) images[0].classList.add('active');
+             return;
+        }
+
+        function showSlide(index) {
+            images.forEach(img => img.classList.remove('active'));
+            currentIndex = (index + images.length) % images.length;
+            if (images[currentIndex]) images[currentIndex].classList.add('active');
+        }
+
+        function nextSlide() {
+             showSlide(currentIndex + 1);
+        }
+
+        function prevSlide() {
+             showSlide(currentIndex - 1);
+        }
+
+        function startAutoplay() {
+             stopAutoplay();
+             if (images.length > 1) { // Запускаємо тільки якщо більше одного слайда
+                intervalId = setInterval(nextSlide, autoplayDelay);
+             }
+        }
+
+        function stopAutoplay() {
+             clearInterval(intervalId);
+             intervalId = null;
+        }
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', function() {
+                stopAutoplay();
+                prevSlide();
+                // startAutoplay(); // Розкоментуйте, якщо хочете відновити автоплей після кліку
+            });
+        }
+
+       if (nextBtn) {
+           nextBtn.addEventListener('click', function() {
+                stopAutoplay();
+                nextSlide();
+                // startAutoplay(); // Розкоментуйте, якщо хочете відновити автоплей після кліку
+            });
+       }
+
+        slider.addEventListener('mouseenter', stopAutoplay);
+        slider.addEventListener('mouseleave', startAutoplay);
+
+        document.addEventListener('keydown', function(e) {
+            if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') {
+                return;
+            }
+            if (e.key === 'ArrowLeft') {
+                if (prevBtn && window.getComputedStyle(prevBtn).display !== 'none') prevBtn.click();
+            } else if (e.key === 'ArrowRight') {
+               if (nextBtn && window.getComputedStyle(nextBtn).display !== 'none') nextBtn.click();
+            }
+        });
+
+        if (images.length > 0) showSlide(0);
+        startAutoplay();
+    });
+  </script>
+</body>
+</html>
